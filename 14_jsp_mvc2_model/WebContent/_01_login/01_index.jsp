@@ -3,7 +3,6 @@
 
 <%--
 
-
 	1. 이클립스에서 해당 프로젝트 > WebContent > WEB-INF > lib폴더에 라이브러리 추가 
 		commons-collections4-4.1.jar
 		commons-dbcp2-2.2.0.jar
@@ -11,7 +10,6 @@
 		jstl-1.2.jar
 		mysql-connector-java-8.0.15.jar
 		
-	
 	2. MySql Workbench에서 DB 관련 정보 생성
 	
 		CREATE DATABASE MVC2_LOGIN_EX;
@@ -28,7 +26,6 @@
 		    MAJOR VARCHAR(20)         -- 전공분야
 		);
 	
-	 
 	3. 이클립스에서 Servers폴더에 있는 Context.xml파일에 아래의 내용 추가 
 	
 		<Resource 
@@ -42,7 +39,6 @@
 			type="javax.sql.DataSource"
 			url="jdbc:mysql://localhost:3306/MVC2_LOGIN_EX?serverTimezone=UTC"
 		/> 
-
  --%>
 
 <!DOCTYPE html>
@@ -74,5 +70,3 @@
 	</div> 
 </body>
 </html>
-
-

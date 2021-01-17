@@ -28,27 +28,17 @@ public class _07_Apply extends HttpServlet {
 	
 	public void reqPro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-//		HttpSession session = request.getSession();
-//		String id = (String)session.getAttribute("memId");
-//
-//		if (id != null) {
-//			MemberDTO mdto = MemberDAO.getInstance().getOneMemberInfo(id);
-//			request.setAttribute("mdto", mdto);
-//		} 
-//		
-//		RequestDispatcher dis = request.getRequestDispatcher("_01_login/07_apply.jsp");
-//		dis.forward(request, response);
-		
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("memId");
-		
-		if(id!= null) {
+
+		if (id != null) {
 			MemberDTO mdto = MemberDAO.getInstance().getOneMemberInfo(id);
 			request.setAttribute("mdto", mdto);
-		}
+		} 
+		
 		RequestDispatcher dis = request.getRequestDispatcher("_01_login/07_apply.jsp");
 		dis.forward(request, response);
-		
+				
 	}
 
 }

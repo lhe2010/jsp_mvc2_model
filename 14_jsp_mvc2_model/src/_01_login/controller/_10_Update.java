@@ -33,8 +33,7 @@ public class _10_Update extends HttpServlet {
 		
 		MemberDTO mdto = MemberDAO.getInstance().getOneMemberInfo(id);
 		
-		
-		if (mdto.getField() != null) {  // 지원분야가 없으면 > 최초지원
+		if (mdto.getField() != null) {  
 		
 			String[] skills = mdto.getSkill().split(",");
 		
@@ -50,8 +49,7 @@ public class _10_Update extends HttpServlet {
 			request.setAttribute("mdto", mdto);
 			request.setAttribute("isFirstApply", false);
 			
-		}
-		else {
+		} else {		// 지원분야가 없으면 > 최초지원
 			request.setAttribute("isFirstApply", true);
 		}
 		

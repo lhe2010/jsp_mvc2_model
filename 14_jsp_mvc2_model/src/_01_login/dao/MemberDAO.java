@@ -35,9 +35,7 @@ public class MemberDAO {
         conn = ds.getConnection();
         
         return conn;
-        
     }
-    
     
     // 1. 회원가입 DAO
     public boolean joinMember(MemberDTO mdto) {
@@ -71,9 +69,7 @@ public class MemberDAO {
         }
         
         return isJoin;
-    
     }
-    
     
     // 2. 로그인 DAO
     public boolean login(String id, String pw) {
@@ -86,9 +82,8 @@ public class MemberDAO {
             pstmt.setString(1, id);
             pstmt.setString(2, pw);
             rs = pstmt.executeQuery();
-            if (rs.next()) {
+            if (rs.next()) 
             	isLogin = true;
-            }
             
         } catch (Exception e) {
             e.printStackTrace();
@@ -99,9 +94,7 @@ public class MemberDAO {
         }
     	
         return isLogin;
-    
     }
-    
     
     // 3. 회원정보 수정 DAO
     public void updateMember(String id, MemberDTO mdto) {
@@ -127,14 +120,12 @@ public class MemberDAO {
         }
     }
     
-    
     // 4. 한명의 회원의 정보 조회 DAO
     public MemberDTO getOneMemberInfo(String id) {
         
     	MemberDTO mdto = null;
         
     	try {
-    		
             conn = getConnection();
             pstmt = conn.prepareStatement("SELECT * FROM MEMBER WHERE ID=?");
             pstmt.setString(1, id);
@@ -161,15 +152,12 @@ public class MemberDAO {
         }
     	
         return mdto;
-    
     }
-    
     
     // 5. 회원 탈퇴 DAO
     public void delete(String id) {
     	
-    	try {
-    		
+    	try {    		
     		conn = getConnection();
     		pstmt = conn.prepareStatement("DELETE FROM MEMBER WHERE ID=?");
     		pstmt.setString(1, id);
@@ -181,14 +169,12 @@ public class MemberDAO {
     		if (pstmt != null) {try {pstmt.close();} catch (SQLException e) {}}
     		if (conn != null) {try {conn.close();} catch (SQLException e) {}}
     	}
-    	
     }
        
     // 6. 입사지원 DAO
     public void apply(String id, String field, String skill, String major) {
  
-        try {
-        	
+        try {        	
             conn = getConnection();
             pstmt = conn.prepareStatement("UPDATE MEMBER SET FIELD=?, SKILL=?, MAJOR=? WHERE ID=?");
             pstmt.setString(1, field);
@@ -203,8 +189,6 @@ public class MemberDAO {
         	if(pstmt != null) {try {pstmt.close();} catch (SQLException e) {}}
             if(conn != null)  {try {conn.close();} catch (SQLException e) {}}
         }
-        
     }
-    
     
 }
